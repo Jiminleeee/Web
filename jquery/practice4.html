@@ -23,14 +23,15 @@
   <script>
   // submit시 실행할 함수
    function check() {
-    //  체크박스에 체크된 것의 갯수 
-    if($("input:checkbox[name=chk]:checked").length <3) {
-      alert("취미를 3개 이상 체크하세요");
-    }
      //  체크박스에 체크된 것의 갯수 
     if($("input:radio[name=gender]:checked").length <1) {
       alert("성별을 1개 이상 체크하세요");
     }
+    //  체크박스에 체크된 것의 갯수 
+    if($("input:checkbox[name=chk]:checked").length <3) {
+      alert("취미를 3개 이상 체크하세요");
+    }
+     
   }
   
    
