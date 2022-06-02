@@ -81,7 +81,7 @@
     $('input:chechbox[name=chk]').prop('checked',true);
 
     //체크된 것이 있는지?
-    if($('input:chechbox[name=chk]:checked').length > 0) {
+    if($('input:checkbox[name=chk]:checked').length > 0) {
       //내부순환
       $('input[name=chk]:checkbox').each(function() { 
         console.log('!!!');
