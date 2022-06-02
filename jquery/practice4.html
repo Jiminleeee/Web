@@ -28,7 +28,7 @@
       alert("취미를 3개 이상 체크하세요");
     }
      //  체크박스에 체크된 것의 갯수 
-    if($("input:checkbox[name=gender]:checked").length <1) {
+    if($("input:radio[name=gender]:checked").length <1) {
       alert("성별을 1개 이상 체크하세요");
     }
   }
@@ -49,8 +49,9 @@
       </tr>
       <tr>
         <td>성별</td>
-        <td>남자<input type="checkbox" name="gender"></td>
-        <td>여자<input type="checkbox" name="gender"></td>
+        <!-- radio : 여러 라디오 버튼 중 하나만 선택 가능 -->
+        <td><input type="radio" name="gender">남자</td>
+        <td><input type="radio" name="gender">여자</td>
         <td></td>
       </tr>
       <tr>
