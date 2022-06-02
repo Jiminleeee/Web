@@ -42,11 +42,13 @@
 
     //키보드로 조작하기
     $('body').keydown(function(event) {
+      // number : 숫자로 만들기
       let top = Number(snoopy.css('top').replace('px',''));
       let bottom = top + CHARACTER_HEIGHT;
       let left = Number(snoopy.css('left').replace('px',''));
       let right = left + CHARACTER_WIDTH;
-
+      
+      //event.key : 키보드 조작
       switch(event.key) {
         case 'ArrowUp':
           if (top - MOVE <0) {
