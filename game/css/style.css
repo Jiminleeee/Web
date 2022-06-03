@@ -17,3 +17,11 @@
   bottom: 0;
   right: 30px;
 }
+
+#killer {
+  width: 150px;
+  position: absolute;
+  left: 200px;
+  bottom: 10px;
+  display: none;
+}
