@@ -9,22 +9,44 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/script.js"></script>
 </head>
 
 <body>
+
   <div class="container">
+    <div class="background"></div>
     <img id="mario" src="assets/mario.gif" alt="mario">
     <img id="goomba" src="assets/goomba.gif" alt="goomba">
-    <img id="killer" src="assets/killer.jpeg" alt="killer">
-    <div id="score">점수 : 0</div>
+    <img id="killer" src="assets/killer.png" alt="killer">
+    <h1><div id="score">점수 : 0</div></h1>
   </div>
-
+  <div id="gameOver"> 
+    <h1>GAME OVER</h1> 
+    <button class="again">RESTART</button>
+  </div>
+  <div id="start"> 
+    <h1>GAME START</h1>
+    <button class="enter">START</button>
+  </div>
+  
+  
   <script>
     let isJumping = false;
     let isGameOver = false;
+    let isGameStart = true;
     let score = 0;
     let isKillerStart = false;
+
+    function showStart(isGameStart) {
+      if (isGameStart == true) {
+        $('#start').show();
+        $('.container').hide();
+        $('#gameOver').hide();
+      } else {
+        $('#start').hide();
+        $('.container').show();
+      }
+    }
 
     function goombaDown() {
       let goombaLeft = Number($('#goomba').css('left').replace('px', ''));
@@ -54,14 +76,17 @@
       }
 
       let marioRight = 250;
-
       let goombaLeft = Number($('#goomba').css('left').replace('px', ''));
 
       if (goombaLeft <= marioRight && isJumping == false) {
         console.log('die');
-        // alert('Game Over');
         $('#goomba').stop();
         isGameOver = true;
+
+        $('.container').hide();
+        $('#gameOver').show();
+
+        isGameStart = false;
       }
     }
 
@@ -141,12 +166,25 @@
         }
       });
 
-      // 굼바 출발
+      showStart(isGameStart);
+
+      if ($('.enter').click(function(){
+        $('#start').hide();
+        $('.container').show();
+
+        // 굼바 출발
       goombaStart();
-      // 충돌 체크
-      setInterval(marioDown, 10);
+      }))
+
       // 굼바 죽었나 체크
       setInterval(goombaDown, 10);
+
+      // 충돌 체크
+      setInterval(marioDown, 10);
+
+      if ($('.again').click(function(){
+        location.reload();
+      }));
     });
   </script>
 </body>

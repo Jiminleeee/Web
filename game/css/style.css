@@ -1,49 +1,91 @@
+
 body {
   overflow-x: hidden;
 }
-
-.container {
-  border: 1px black solid;
-  height: 90vh;
+#score {
   position: relative;
+  color: white;
+}
+.container {
+  /* border: 1px black solid; */
+  width: 100%;
+  height: 600px;
+  position: relative;
+}
+
+#start {
+  width: 100%;
+  height: 600px;
+  background-image: url("../assets/background.png");
+  /* background-color: black; */
+  color: white;
+  text-align: center;
+  line-height: 200px;
+}
+
+#gameOver {
+  width: 100%;
+  height: 600px;
+  background-image: url("../assets/background.png");
+  /* background-color: black; */
+  color: white;
+  text-align: center;
+  line-height: 200px;
 }
 
 #mario {
   width: 200px;
   position: absolute;
-  bottom: 0;
-  left: 30px;
+  bottom: 50px;
+  left: 50px;
 }
 
 #goomba {
-  width: 100px;
+  width: 150px;
   position: absolute;
-  bottom: 0;
-  right: 30px;
+  bottom: 50px;
+  right: 50px;
 }
 
 #killer {
-  width: 150px;
   position: absolute;
-  left: 200px;
-  bottom: 10px;
+  width: 150px;
+  left: 220px;
+  bottom: 70px;
   display: none;
+}
+
+#basic_screen {
+  position: absolute;
+  left: 30%;
+  top: 15%;
 }
 
 .background {
   position: absolute;
-  background-image: url('../assets/background.jpg');
-  width: 100%;
-  height: 100%;
-  animation: slide 30s linear infinite;
+  background-image: url('../assets/background.png');
+  width: 200%;
+  height: 600px;
+ 
+  animation: slide 3s linear infinite;
+}
+
+.enter {
+  width: 80px;
+  height: 45px;
+}
+
+.again {
+  width: 80px;
+  height: 45px;
 }
 
 @keyframes slide {
   from {
-    transform: translate(0,0);
+    left: 0px;
   }
 
   to {
-    transform: translate(-1600px,0);
+    left: -100%;
   }
 }
