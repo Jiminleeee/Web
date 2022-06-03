@@ -18,8 +18,32 @@
   </div>
   
   <script>
+    //점프 상태
     let isJumping = false;
+    let isGameOver = false;
 
+    //마리오와 굼바 충돌
+    function marioDown() {
+      if (isGameOver) {
+        return;
+      }
+      //let top = Number($('#mario').css('top').replace('px',''));
+      //let bottom = top + CHARACTER_HEIGHT;
+      //let marioLeft = Number($('#mario').css('left').replace('px',''));
+      let marioRight = 230;
+
+      let goombaLeft = Number($('#goomba').css('left').replace('px',''));
+      //let goombaRight = goombaLeft + 100;
+
+      if(goombaLeft <= marioRight && isJumping == false) {
+        //console.log('die');
+        //alert("Game Over");
+        $('#goomba').stop();
+        isGameOver = true;
+      }
+      
+    }
+    //랜덤 함수
     function getRandomInt(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
@@ -67,6 +91,8 @@
 
     //굼바 출발
     goombaStart();
+    //충돌 체크
+    setInterval(marioDown, 10); //60frame
 
   </script>
 </body>
