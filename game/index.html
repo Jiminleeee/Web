@@ -15,12 +15,14 @@
   <div class="container">
       <img id="mario" src="assets/mario.gif" alt="mario">
       <img id="goomba" src="assets/goomba.gif" alt="goomba">
+      <div id="score">점수 : 0</div>
   </div>
   
   <script>
     //점프 상태
     let isJumping = false;
     let isGameOver = false;
+    let score = 0;
 
     //마리오와 굼바 충돌
     function marioDown() {
@@ -57,6 +59,11 @@
 
 
       $('#goomba').animate( {left: '-120px'}, speed, function() {
+        //마리오가 살았으면 점수 +100
+        if (isGameOver == false) {
+          score += 100;
+          $('#score').text(`점수 : ${score}`);
+        }
         //왼쪽 끝까지 가면 초기 위치로 이동
         $('#goomba').css('right','-150px').css('left','');
         //1초 후에 나오기
