@@ -56,13 +56,13 @@
     </tr>
     <tr>
       <td><input type="checkbox" name="chk"></td>
-      <td>666666</td>
+      <td id="title">666666</td>
       <td>11:11:11</td>
     </tr>
   </table>
 
   <div>
-    <input id="log_button" type="button" value="로그" onclick="nobutton(); yesbutton();">
+    <input id="log_button" type="button" value="로그">
   </div>
 
   <script>
@@ -79,19 +79,35 @@
       }
     }
 
-    function nobutton() {
+    $("#log_button").click(function() {
+      if($('input:checkbox[name=chk]:checked').length == 0) {
+        alert("선택이 없습니다.");
+      };
+
+      $("input[name='chk']:checked").each(function(e){
+          console.log(`체크된 박스의 값: ${$(this).val()}`)
+      });
+
+    });
+
+
+
+
+
+    /*function nobutton() {
       if($('input:checkbox[name=chk]:checked').length == 0) {
         alert("선택이 없습니다.");
       }
     }
-    //parent() : 상위의 것 (부모) > checkbox > td > tr
+   
+    
+
+    // 체크 된 value 값 가져오기
     function yesbutton() {
-      $('input[name=chk]:checkbox').each(function() { 
-        if($(this).is(':checked')) {
-          $(this).parent().parent().css('backgroundColor','yellow');
-        }
-      })
-    }   
+      $("input[name='chk']:checked").each(function(e){
+          console.log(`체크된 박스의 값: ${$(this).val()}`)
+      });
+   }*/
   </script>
 </body>
 </html>
