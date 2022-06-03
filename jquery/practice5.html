@@ -79,17 +79,20 @@
       }
     }
 
-    $("#log_button").click(function() {
-      if($('input:checkbox[name=chk]:checked').length == 0) {
-        alert("선택이 없습니다.");
-      };
 
-      $("input[name='chk']:checked").each(function(e){
-          console.log(`체크된 박스의 값: ${$(this).val()}`)
-      });
-
+    $('#log_button').click(function () {
+      if ($('input[name=chk]:checked').length > 0) {
+                var checkbox = $("input[name=chk]:checked");
+                checkbox.each(function (i) {
+                    let tr = checkbox.closest('tr').eq(i);
+                    let td = tr.children();
+                    let subject = td.eq(1).text();
+                    console.log(subject);
+                });
+      } else {
+        alert('선택된 체크박스가 없습니다');
+      }
     });
-
 
 
 
