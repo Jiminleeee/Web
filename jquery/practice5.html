@@ -79,23 +79,24 @@
       }
     }
 
-
-    $('#log_button').click(function () {
-      if ($('input[name=chk]:checked').length > 0) {
-                var checkbox = $("input[name=chk]:checked");
-                checkbox.each(function (i) {
-                    let tr = checkbox.closest('tr').eq(i);
-                    let td = tr.children();
-                    let subject = td.eq(1).text();
-                    console.log(subject);
-                });
-      } else {
-        alert('선택된 체크박스가 없습니다');
-      }
+    //체크한 제목 로그 찍기
+    $("#log_button").click(function () {
+      $("input[name='chk']:checked").each(function () {
+            console.log($(this).parent().next().text());
+      })
     });
 
+    /*$('#log_button').click(function () {
+      if ($('input[name=chk]:checked').length > 0) {
+        $("input[name='chk']:checked").each(function() {
+          console.log($(this).parent().next().text());
+      }) else {
+        alert('선택된 체크박스가 없습니다');
+      }
+    }
+  }; */
 
-
+  
 
     /*function nobutton() {
       if($('input:checkbox[name=chk]:checked').length == 0) {
