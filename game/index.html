@@ -14,10 +14,31 @@
   <!-- .container -->
   <div class="container">
       <img id="mario" src="assets/mario.gif" alt="mario">
+      <img id="goomba" src="assets/goomba.gif" alt="goomba">
   </div>
   
   <script>
     let isJumping = false;
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
+    }
+      
+    //굼바가 오른쪽에서 나와서 왼쪽 끝으로 사라지게 만든다
+    function goombaStart() {
+      let speed = getRandomInt(1000,2000);
+      let respawnTime = getRandomInt(1000,2000);
+
+
+      $('#goomba').animate( {left: '-120px'}, speed, function() {
+        //왼쪽 끝까지 가면 초기 위치로 이동
+        $('#goomba').css('right','-150px').css('left','');
+        //1초 후에 나오기
+        setTimeout(goombaStart(), respawnTime);
+      });
+    }
 
     //jump
     function jump() {
@@ -26,10 +47,11 @@
         return;
       }
       isJumping = true;
-      $("#mario").animate( {bottom: '+=200px'}).animate( {bottom: '-=200px'}), function() {
-        isJumping = false;
-      };
-    }
+        $("#mario").animate( {bottom: '+=200px'}).animate( {bottom: '-=200px'}, 300, function() {
+          isJumping = false;
+        })
+    };
+
 
     // onload
     //스페이스바 누르면 점프
@@ -42,6 +64,10 @@
         }
       });
     });
+
+    //굼바 출발
+    goombaStart();
+
   </script>
 </body>
 </html>
