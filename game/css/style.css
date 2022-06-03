@@ -1,0 +1,12 @@
+.container {
+  border: 1px black solid;
+  height: 90vh;
+  position: relative;
+}
+
+#mario {
+  width: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+}
