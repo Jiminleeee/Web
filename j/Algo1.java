@@ -10,7 +10,7 @@ public class Algo1 {
     scanner.close();
 }
   public static String resolve(int count) {
-    String nameAll = "";  //입력 받은 문자
+    String nameAll = "";  //출력할 문자열
     Scanner scanner = new Scanner(System.in); //scanner
     for (int i = 0; i < count; i++) {   // count 하나씩 크면서
       String name = scanner.next();   
