@@ -1,4 +1,4 @@
-package java0609;
+package j;
 
 public class Word {
 	public static void main(String[] args) {
