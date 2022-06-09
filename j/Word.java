@@ -3,7 +3,7 @@ package java0609;
 public class Word {
 	public static void main(String[] args) {
 		Word word = new Word("Hello World");
-		System.out.println(word.isVowel(1));
+		System.out.println(word.isVowel(i(1)));
 		
 		
 	}
